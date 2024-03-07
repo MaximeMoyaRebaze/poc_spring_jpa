@@ -6,6 +6,7 @@ import com.maxime.testdatabasemysql.student.StudentService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -15,7 +16,7 @@ import java.util.List;
 import static com.maxime.testdatabasemysql.student.StudentConfig.studentConfig01Name;
 
 @SpringBootTest
-// @ExtendWith({ WithMySQLExtension.class })
+@ExtendWith({ WithMySQLExtension.class })
 class TestdatabasemysqlApplicationTests {
 
 	@Autowired
