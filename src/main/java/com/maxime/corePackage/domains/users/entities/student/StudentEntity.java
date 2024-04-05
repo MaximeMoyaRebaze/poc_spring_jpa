@@ -1,6 +1,6 @@
-package com.maxime.corePackage.entities.student;
+package com.maxime.corePackage.domains.users.entities.student;
 
-import com.maxime.corePackage.dtos.inputs.student.StudentCreationInputDTO;
+import com.maxime.corePackage.domains.users.dtos.inputs.student.StudentCreationInputDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

@@ -1,7 +1,7 @@
-package com.maxime.corePackage.configs.student;
+package com.maxime.corePackage.domains.users.configs.student;
 
-import com.maxime.corePackage.entities.student.StudentEntity;
-import com.maxime.corePackage.repositories.student.StudentRepository;
+import com.maxime.corePackage.domains.users.entities.student.StudentEntity;
+import com.maxime.corePackage.domains.users.repositories.student.StudentRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

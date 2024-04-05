@@ -1,6 +1,7 @@
-package com.maxime.corePackage.containers.mySql;
+package com.maxime.corePackage.containers.mySql.users.student;
 
-import com.maxime.corePackage.inMemory.student.StudentUseCaseTest;
+import com.maxime.corePackage.containers.mySql.WithMySQLExtension;
+import com.maxime.corePackage.inMemory.users.student.StudentUseCaseTest;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.context.SpringBootTest;
 

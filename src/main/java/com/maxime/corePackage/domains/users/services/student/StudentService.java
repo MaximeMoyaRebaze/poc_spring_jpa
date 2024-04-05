@@ -1,9 +1,9 @@
-package com.maxime.corePackage.services.student;
+package com.maxime.corePackage.domains.users.services.student;
 
-import com.maxime.corePackage.dtos.inputs.student.StudentCreationInputDTO;
-import com.maxime.corePackage.entities.student.StudentEntity;
-import com.maxime.corePackage.exceptions.AlreadyExistException;
-import com.maxime.corePackage.repositories.student.StudentRepository;
+import com.maxime.corePackage.domains.users.dtos.inputs.student.StudentCreationInputDTO;
+import com.maxime.corePackage.domains.users.entities.student.StudentEntity;
+import com.maxime.corePackage.domains.users.exceptions.AlreadyExistException;
+import com.maxime.corePackage.domains.users.repositories.student.StudentRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

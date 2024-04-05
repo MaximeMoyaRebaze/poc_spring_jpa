@@ -1,8 +1,8 @@
-package com.maxime.corePackage.inMemory.student;
+package com.maxime.corePackage.inMemory.users.student;
 
 import com.maxime.corePackage.CoreTestAbstractClass;
-import com.maxime.corePackage.dtos.inputs.student.StudentCreationInputDTO;
-import com.maxime.corePackage.entities.student.StudentEntity;
+import com.maxime.corePackage.domains.users.dtos.inputs.student.StudentCreationInputDTO;
+import com.maxime.corePackage.domains.users.entities.student.StudentEntity;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;

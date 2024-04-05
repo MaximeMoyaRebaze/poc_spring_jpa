@@ -1,8 +1,8 @@
 package com.maxime.corePackage;
 
-import com.maxime.corePackage.repositories.student.InMemoryStudentRepository;
-import com.maxime.corePackage.repositories.student.StudentRepository;
-import com.maxime.corePackage.services.student.StudentService;
+import com.maxime.corePackage.domains.users.repositories.student.InMemoryStudentRepository;
+import com.maxime.corePackage.domains.users.repositories.student.StudentRepository;
+import com.maxime.corePackage.domains.users.services.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Objects;

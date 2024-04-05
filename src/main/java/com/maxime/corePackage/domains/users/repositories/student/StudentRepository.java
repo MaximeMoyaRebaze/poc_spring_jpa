@@ -1,6 +1,6 @@
-package com.maxime.corePackage.repositories.student;
+package com.maxime.corePackage.domains.users.repositories.student;
 
-import com.maxime.corePackage.entities.student.StudentEntity;
+import com.maxime.corePackage.domains.users.entities.student.StudentEntity;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;

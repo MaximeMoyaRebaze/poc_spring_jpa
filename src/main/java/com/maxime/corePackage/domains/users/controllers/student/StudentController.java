@@ -1,8 +1,8 @@
-package com.maxime.corePackage.controllers.student;
+package com.maxime.corePackage.domains.users.controllers.student;
 
-import com.maxime.corePackage.dtos.inputs.student.StudentCreationInputDTO;
-import com.maxime.corePackage.entities.student.StudentEntity;
-import com.maxime.corePackage.services.student.StudentService;
+import com.maxime.corePackage.domains.users.dtos.inputs.student.StudentCreationInputDTO;
+import com.maxime.corePackage.domains.users.entities.student.StudentEntity;
+import com.maxime.corePackage.domains.users.services.student.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

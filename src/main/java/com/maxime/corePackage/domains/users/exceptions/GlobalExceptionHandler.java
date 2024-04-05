@@ -1,4 +1,4 @@
-package com.maxime.corePackage.exceptions;
+package com.maxime.corePackage.domains.users.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;

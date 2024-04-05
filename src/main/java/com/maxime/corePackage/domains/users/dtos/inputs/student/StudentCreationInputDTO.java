@@ -1,4 +1,4 @@
-package com.maxime.corePackage.dtos.inputs.student;
+package com.maxime.corePackage.domains.users.dtos.inputs.student;
 
 public class StudentCreationInputDTO {
 
