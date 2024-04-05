@@ -1,4 +1,4 @@
-package com.maxime.corePackage.domains.users.exceptions;
+package com.maxime.corePackage.utils.exceptions;
 
 import java.net.URI;
 
