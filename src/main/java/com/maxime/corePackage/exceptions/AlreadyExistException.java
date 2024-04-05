@@ -1,4 +1,4 @@
-package com.maxime.testdatabasemysql.student;
+package com.maxime.corePackage.exceptions;
 
 import java.net.URI;
 

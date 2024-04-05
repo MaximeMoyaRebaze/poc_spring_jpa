@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.maxime</groupId>
-	<artifactId>testdatabasemysql</artifactId>
+	<artifactId>corePackage</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>testdatabasemysql</name>
+	<name>corePackage</name>
 	<description>Demo project for Spring Boot with mysql</description>
 	<properties>
 		<java.version>17</java.version>

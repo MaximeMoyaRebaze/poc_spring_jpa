@@ -1,4 +1,4 @@
-package com.maxime.testdatabasemysql.student;
+package com.maxime.corePackage.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -12,6 +12,11 @@ public class GlobalExceptionHandler {
 
 	@ExceptionHandler({ AlreadyExistException.class })
 	public ResponseEntity<ErrorResponse> handleResourceNotFoundException(AlreadyExistException ex) {
+
+		// With Static :
+		// ErrorResponse errorResponse = ErrorResponse.create(ex, HttpStatusCode.valueOf(HttpStatus.CONFLICT.value()),ex.getMessage());
+
+		// With BUILDER :
 		ErrorResponse errorResponse = ErrorResponse.builder(ex, HttpStatusCode.valueOf(HttpStatus.CONFLICT.value()),ex.getMessage())
 				//.header("headerName","HeaderValue")
 				//.typeMessageCode("")
@@ -22,7 +27,6 @@ public class GlobalExceptionHandler {
 				//.detailMessageArguments("")
 				.type(ex.getType())
 				.build();
-		// ErrorResponse errorResponse = ErrorResponse.create(ex, HttpStatusCode.valueOf(HttpStatus.CONFLICT.value()),ex.getMessage());
 		return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
 	}
 
