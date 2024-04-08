@@ -2,26 +2,25 @@ package com.maxime.corePackage.domains.users.entities.student;
 
 import com.maxime.corePackage.domains.users.dtos.inputs.student.StudentCreationInputDTO;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+
+import java.util.UUID;
 
 @Entity
 @Table
 public class StudentEntity {
     @Id
-    @SequenceGenerator(
-            name = "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
-    )
-    private Long id;
+//    @SequenceGenerator(
+//            name = "student_sequence",
+//            sequenceName = "student_sequence",
+//            allocationSize = 1
+//    )
+//    @GeneratedValue(
+//            strategy = GenerationType.SEQUENCE,
+//            generator = "student_sequence"
+//    )
+    private UUID id;
 
     private String name;
 
@@ -45,14 +44,14 @@ public class StudentEntity {
         return this;
     }
 
-    // -----------------
-    // GETTER / SETTER :
-    // -----------------
-    public Long getId() {
+    // -------------------
+    // GETTERS / SETTERS :
+    // -------------------
+    public UUID getUuid() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

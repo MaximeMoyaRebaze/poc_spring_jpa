@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 // TODO => understand why need extends JpaRepository<StudentEntity, Long>
 // @Repository
@@ -29,7 +30,7 @@ public interface StudentRepository {
     Boolean isStudentExist(String name);
 
     @Query("SELECT s.id FROM StudentEntity s WHERE s.name = ?1")
-    Long getIdOfStudent(String name);
+    UUID getIdOfStudent(String name);
 
     StudentEntity save(StudentEntity studentEntity);
 

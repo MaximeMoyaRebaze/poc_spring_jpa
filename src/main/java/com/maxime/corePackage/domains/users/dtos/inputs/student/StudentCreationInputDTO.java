@@ -2,6 +2,9 @@ package com.maxime.corePackage.domains.users.dtos.inputs.student;
 
 public class StudentCreationInputDTO {
 
+    // ------------
+    // ATTRIBUTES :
+    // ------------
     private String name;
 
     // -------------
@@ -12,9 +15,9 @@ public class StudentCreationInputDTO {
         this.name = name;
     }
 
-    // ---------------------
-    // GETTERS AND SETTERS :
-    // ---------------------
+    // -------------------
+    // GETTERS / SETTERS :
+    // -------------------
 
     public String getName() {
         return name;

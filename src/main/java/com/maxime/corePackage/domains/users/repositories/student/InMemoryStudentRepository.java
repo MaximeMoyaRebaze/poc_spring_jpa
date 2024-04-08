@@ -6,10 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
 
 public class InMemoryStudentRepository implements StudentRepository {
 
-    public static HashMap<Long, StudentEntity> studentEntityHashMap = new HashMap<>();
+    public HashMap<UUID, StudentEntity> studentEntityHashMap = new HashMap<>();
 
     @Override
     public List<StudentEntity> findAll() {
@@ -18,41 +19,41 @@ public class InMemoryStudentRepository implements StudentRepository {
 
     @Override
     public Optional<StudentEntity> findByName(String name) {
-        return studentEntityHashMap.values().stream().filter(student -> Objects.equals(name, student.getName())).findFirst();
+        return this.studentEntityHashMap.values().stream().filter(student -> Objects.equals(name, student.getName())).findFirst();
     }
 
     @Override
     public Boolean existsStudentByName(String name) {
-        return studentEntityHashMap.values().stream().anyMatch(student -> Objects.equals(name, student.getName()));
+        return this.studentEntityHashMap.values().stream().anyMatch(student -> Objects.equals(name, student.getName()));
     }
 
     @Override
     public Boolean isStudentExist(String name) {
-        return studentEntityHashMap.values().stream().anyMatch(student -> Objects.equals(name, student.getName()));
+        return this.studentEntityHashMap.values().stream().anyMatch(student -> Objects.equals(name, student.getName()));
     }
 
     @Override
-    public Long getIdOfStudent(String name) {
+    public UUID getIdOfStudent(String name) {
         Optional<StudentEntity> optionalStudentEntity =
-                studentEntityHashMap.values()
+                this.studentEntityHashMap.values()
                         .stream()
                         .filter(student -> Objects.equals(name, student.getName()))
                         .findFirst();
-        return optionalStudentEntity.map(StudentEntity::getId).orElse(null);
+        return optionalStudentEntity.map(StudentEntity::getUuid).orElse(null);
     }
 
     @Override
     public StudentEntity save(StudentEntity studentEntity) {
-        Long id = Integer.toUnsignedLong(studentEntityHashMap.size());
-        studentEntity.setId(id);
-        studentEntityHashMap.put(id, studentEntity);
+        UUID uuid = UUID.randomUUID();
+        studentEntity.setId(uuid);
+        this.studentEntityHashMap.put(uuid, studentEntity);
         return studentEntity;
     }
 
     @Override
     public void saveAllAndFlush(List<StudentEntity> studentEntities) {
         for (StudentEntity studentEntity : studentEntities) {
-            studentEntityHashMap.put(studentEntity.getId(), studentEntity);
+            this.studentEntityHashMap.put(studentEntity.getUuid(), studentEntity);
         }
     }
 
