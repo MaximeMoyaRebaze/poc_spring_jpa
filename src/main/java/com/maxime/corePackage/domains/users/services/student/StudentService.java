@@ -1,39 +1,48 @@
 package com.maxime.corePackage.domains.users.services.student;
 
 import com.maxime.corePackage.domains.users.dtos.inputs.student.StudentCreationInputDTO;
-import com.maxime.corePackage.domains.users.entities.student.StudentEntity;
-import com.maxime.corePackage.utils.exceptions.AlreadyExistException;
+import com.maxime.corePackage.domains.users.dtos.outputs.student.StudentOutputDTO;
 import com.maxime.corePackage.domains.users.repositories.student.StudentRepository;
+import com.maxime.corePackage.domains.users.usecases.student.AddStudentUseCase;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.net.URI;
 import java.util.List;
 
 @Service
 @Transactional
 public class StudentService {
 
+    // -------------
+    // Dependencies:
+    // -------------
+
     private final StudentRepository studentRepository;
+
+    // ------------
+    // Constructor:
+    // ------------
 
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
 
-    public List<StudentEntity> getStudents() {
-        return studentRepository.findAll();
-    }
-
-    public StudentEntity addStudent(StudentCreationInputDTO studentCreationInputDTO, URI type) {
-        if (studentRepository.findByName(studentCreationInputDTO.getName()).isPresent()) {
-            throw new AlreadyExistException("student with the name '" + studentCreationInputDTO.getName() + "' already exist", type);
-        }
-        return studentRepository.save(new StudentEntity().withStudentCreationInputDTO(studentCreationInputDTO));
-    }
+    // --------
+    // Methods:
+    // --------
 
     public Boolean isStudentExist(String name) {
         return studentRepository.isStudentExist(name);
     }
 
+    public List<StudentOutputDTO> getAllStudents() {
+        return studentRepository.findAll().stream().map(
+                studentEntity -> new StudentOutputDTO().withStudentEntity(studentEntity)
+        ).toList();
+    }
+
+    public StudentOutputDTO addStudent(StudentCreationInputDTO studentCreationInputDTO) {
+        return new AddStudentUseCase(studentRepository).handle(studentCreationInputDTO);
+    }
 
 }

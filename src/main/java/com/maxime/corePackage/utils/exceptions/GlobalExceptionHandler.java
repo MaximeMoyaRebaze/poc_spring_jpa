@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
 				.detail(ex.getMessage())
 				//.detailMessageCode("")
 				//.detailMessageArguments("")
-				.type(ex.getType())
+				// .type(ex.getType())
 				.build();
 		return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
 	}

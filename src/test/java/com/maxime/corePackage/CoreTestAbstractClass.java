@@ -18,18 +18,16 @@ public abstract class CoreTestAbstractClass {
 
     public StudentRepository getStudentRepository() {
         if (Objects.isNull(studentRepository)) {
-            return new InMemoryStudentRepository();
-        } else {
-            return studentRepository;
+            this.studentRepository = new InMemoryStudentRepository();
         }
+        return studentRepository;
     }
 
     public StudentService getStudentService() {
         if (Objects.isNull(studentService)) {
-            return new StudentService(getStudentRepository());
-        } else {
-            return studentService;
+            this.studentService = new StudentService(getStudentRepository());
         }
+        return studentService;
     }
 
 }
