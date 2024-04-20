@@ -2,6 +2,8 @@ package com.maxime.corePackage.domains.users.repositories.student;
 
 import com.maxime.corePackage.domains.users.entities.student.StudentEntity;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.data.repository.Repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +12,8 @@ import java.util.UUID;
 // TODO => understand why need extends JpaRepository<StudentEntity, Long>
 // @Repository
 // public interface StudentRepository extends JpaRepository<StudentEntity, Long> {
-public interface StudentRepository {
+@NoRepositoryBean
+public interface StudentRepository extends Repository<StudentEntity, UUID> {
 
     // ------------------
     // Automatic queries :
