@@ -1,6 +1,7 @@
 package com.maxime.corePackage.domains.users.entities.student;
 
 import com.maxime.corePackage.domains.users.dtos.inputs.student.StudentCreationInputDTO;
+import com.maxime.corePackage.domains.users.usecases.student.CreateStudentRequest;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -20,44 +21,49 @@ public class StudentEntity {
 //            strategy = GenerationType.SEQUENCE,
 //            generator = "student_sequence"
 //    )
-    private UUID id;
+	private UUID id;
 
-    private String name;
+	private String name;
 
-    // -------------
-    // CONSTRUCTOR :
-    // -------------
-    public StudentEntity() {
-    }
+	// -------------
+	// CONSTRUCTOR :
+	// -------------
+	public StudentEntity() {
+	}
 
-    // ---------
-    // BUILDER :
-    // ---------
+	// ---------
+	// BUILDER :
+	// ---------
 
-    public StudentEntity withStudentCreationInputDTO(StudentCreationInputDTO studentCreationInputDTO) {
-        this.name = studentCreationInputDTO.getName();
-        return this;
-    }
+	public StudentEntity withStudentCreationInputDTO(StudentCreationInputDTO studentCreationInputDTO) {
+		this.name = studentCreationInputDTO.getName();
+		return this;
+	}
 
-    public StudentEntity withName(String name) {
-        this.name = name;
-        return this;
-    }
+	public StudentEntity withCreateStudentRequest(CreateStudentRequest createStudentRequest) {
+		this.name = createStudentRequest.getName();
+		return this;
+	}
 
-    // -------------------
-    // GETTERS / SETTERS :
-    // -------------------
-    public UUID getUuid() {
-        return id;
-    }
+	public StudentEntity withName(String name) {
+		this.name = name;
+		return this;
+	}
 
-    public void setId(UUID id) {
-        this.id = id;
-    }
+	// -------------------
+	// GETTERS / SETTERS :
+	// -------------------
+	public UUID getUuid() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(UUID id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
 
     public void setName(String name) {
         this.name = name;
