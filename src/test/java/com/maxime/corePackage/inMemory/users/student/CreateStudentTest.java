@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 
 import com.maxime.corePackage.CoreTestAbstractClass;
-import com.maxime.corePackage.domains.users.dtos.outputs.student.StudentOutputDTO;
 import com.maxime.corePackage.domains.users.entities.student.StudentEntity;
 import com.maxime.corePackage.domains.users.response.StudentResponse;
 import com.maxime.corePackage.domains.users.usecases.student.CreateStudentRequest;
@@ -20,10 +19,6 @@ public class CreateStudentTest extends CoreTestAbstractClass {
 	@Nested
 	@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 	class GivenNoStudents {
-		@BeforeAll
-		void setUp() {
-			System.out.println("TestSetUp");
-		}
 
 		@Nested
 		@TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -35,7 +30,7 @@ public class CreateStudentTest extends CoreTestAbstractClass {
 				StudentResponse studentResponse = new CreateStudentRequest(studentName).execute(pipeline);
 				Assertions.assertThat(studentResponse.getName()).isEqualTo(studentName);
 
-				List<StudentOutputDTO> studentEntities = getStudentService().getAllStudents();
+				List<StudentEntity> studentEntities = getStudentRepository().findAll();
 				Assertions.assertThat(studentEntities).isNotEmpty();
 				Assertions.assertThat(studentEntities.size()).isEqualTo(1);
 				Assertions.assertThat(studentEntities.get(0).getName()).isEqualTo(studentName);
@@ -52,8 +47,7 @@ public class CreateStudentTest extends CoreTestAbstractClass {
 		private final String studentName = "Paul";
 
 		@BeforeAll
-		void setUp() {
-			// getStudentService().addStudent(new StudentCreationInputDTO(studentName));
+		void createStudent() {
 			StudentEntity studentEntity = new StudentEntity().withName(studentName);
 			getStudentRepository().save(studentEntity);
 		}
@@ -63,9 +57,8 @@ public class CreateStudentTest extends CoreTestAbstractClass {
 		class WhenTriesToAddStudentWithSameNameThanExistingStudent {
 			@Test
 			void thenShouldFailed() {
-				Assertions.assertThatExceptionOfType(AlreadyExistException.class).isThrownBy(() ->
-						//getStudentService().addStudent(new StudentCreationInputDTO(studentName))
-						new CreateStudentRequest(studentName).execute(pipeline));
+				Assertions.assertThatExceptionOfType(AlreadyExistException.class)
+						.isThrownBy(() -> new CreateStudentRequest(studentName).execute(pipeline));
 			}
 		}
 
